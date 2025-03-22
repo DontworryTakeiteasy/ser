@@ -1,48 +1,56 @@
+### 1. What the Project Does
 
+This project develops a hybrid Transformer model that integrates HuBERT, LSTM, and ResNet-50, leveraging the strengths of self-supervised learning, sequence modeling, and convolutional feature extraction. It addresses the limitations of traditional speech emotion recognition methods in capturing long-range dependencies, processing limited data, and extracting effective features, thereby improving the accuracy of emotion recognition. The modular design of the model and the incorporation of the Transformer architecture not only enhance the flexibility and scalability of the model but also enable efficient fusion and classification of multimodal features.
 
-### 1. 项目做什么
+### 2. Why the Project is Useful
 
-​	本项目通过构建一个融合了HuBERT、LSTM和ResNet-50的混合模块Transformer模型，结合了自监督学习、序列建模和卷积特征提取等技术优势，解决了传统语音情绪识别方法在长距离依赖捕捉、有限数据处理以及特征提取上的不足，提升了情绪识别的准确性。同时，本模型的模块化设计和Transformer架构的引入，不仅提高了模型的灵活性和可扩展性，还实现了多模态特征的高效融合与分类。
+The hybrid Transformer model proposed in this project holds significant value in the field of speech emotion recognition. By combining the strengths of HuBERT, LSTM, and ResNet-50, it effectively addresses the shortcomings of traditional methods in capturing long-range dependencies and handling limited data, significantly improving the accuracy of emotion recognition. In intelligent customer service, it can identify customer emotions in real time, helping to adjust communication strategies. In mental health monitoring, it can assist professionals in diagnosing conditions through voice analysis. In education, teachers can use it to understand students' emotions and optimize teaching methods. Additionally, the model utilizes ResNet-50's convolutional layers to analyze audio data in detail, capturing spatial hierarchical features and providing richer insights for emotion recognition. This approach offers new directions and ideas for future research and applications, demonstrating significant technical importance and broad application prospects.
 
-### 2. 项目为什么有用
+### 3. How Users Can Use the Project
 
-​	本项目提出的混合模块Transformer模型在语音情绪识别领域具有重要价值。它通过结合HuBERT、LSTM和ResNet-50的优势，有效解决了传统方法在捕捉长距离依赖关系和处理有限数据时的不足，显著提高了情绪识别的准确性。在智能客服中，它能实时识别客户情绪，帮助调整沟通策略；在心理健康监测方面，可辅助专业人士通过语音分析进行诊断；在教育领域，教师可借此了解学生情绪，优化教学方法。此外，该模型利用ResNet-50的卷积层对音频数据进行细致分析，捕捉空间层次特征，为情绪识别提供更丰富的依据。该方法能为未来的研究和应用提供了新的方向和思路，具有重要的技术意义和广泛的应用前景。
+Users can quickly utilize this project by following these steps:
 
-### 3. 用户如何使用项目
+1. **Install Dependencies**  
+   After cloning the project repository, pull the base Docker image `pytorch/pytorch:1.13.1-cuda11.6-cudnn8-devel`, and install the required dependencies from `requirements.txt`:
 
-用户可以按照以下步骤快速使用本项目：
+   ```bash
+   git clone <GitHub repository link>
+   cd <project folder>
+   ```
 
-1. **安装依赖**
-   克隆本项目的代码库后，使用docker pull基础镜像 pytorch/pytorch:1.13.1-cuda11.6-cudnn8-devel，然后根据requirement.txt安装依赖项：
+2. **Prepare Data**  
+   Download and preprocess the nEMO dataset (or other speech emotion datasets) to ensure the data format meets the project requirements. The data processing scripts are included in the project, and the dataset can be obtained from Huggingface:
 
-   git clone <项目的GitHub链接>
-   cd <项目文件夹>
-
-2. **准备数据**
-   下载并预处理 nEMO 数据集（或其他情绪语音数据集），确保数据格式符合项目要求。数据处理脚本已包含在项目中，可通过Huggingface 的数据集获取：
-
+   ```
    https://huggingface.co/datasets/amu-cai/nEMO
+   ```
 
-   然后通过
+   Then, extract intermediate features using:
 
-   python feature_extract.py 得到 arrays.pkl 的中间特征值
+   ```bash
+   python feature_extract.py
+   ```
 
-3. **训练和测试模型**
-   使用默认配置训练模型：
+   This will generate `arrays.pkl` containing the intermediate feature values.
 
+3. **Train and Test the Model**  
+   Train the model using the default configuration:
+
+   ```bash
    python main.py
+   ```
 
-   如果需要自定义训练参数，请修改配置文件参数指定。
+   To customize training parameters, modify the configuration file as needed.
 
-   
+### 4. Where Users Can Get Help
 
-### 4. 用户能从何处获取项目的帮助
+If users encounter issues or need further assistance, they can seek support through the following channels:
 
-如果在使用过程中遇到问题或需要更多帮助，用户可以通过以下途径获取支持：
+1. **Project Documentation**  
+   The project provides detailed usage guides, parameter descriptions, and code annotations. Please refer to `README.md`.
 
-1. **项目文档**
-    项目提供了详细的使用指南、参数说明和代码注释，可查看README.md。
-2. **GitHub Issue 区**
-    如果发现 Bug 或有功能需求，可以在 Issue 页面 提交问题。我们会尽快回复和解决。
-3. **邮件支持**
-    如需更深入的技术支持或合作交流，可发送邮件至项目维护团队：`luscalinkcc@gmail.com`。
+2. **GitHub Issues**  
+   If you find bugs or have feature requests, you can submit issues on the GitHub Issues page. We will respond and resolve them as soon as possible.
+
+3. **Email Support**  
+   For in-depth technical support or collaboration inquiries, please email the project maintenance team at: `luscalinkcc@gmail.com`.
